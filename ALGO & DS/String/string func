@@ -1,0 +1,14 @@
+char ch;
+isdigit(ch)
+isalpha(ch)
+isalnum(ch)
+isupper(ch)
+islower(ch)
+char *token = strtok(str, ".");
+
+
+string s;
+cout << s.substr(index, len);
+cout << s.length();
+cout << s.c_str();   // will change string class to c style string
+cout << strstr(str, substr);  // will return first occurence of substr in str

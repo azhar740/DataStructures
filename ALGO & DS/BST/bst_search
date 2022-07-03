@@ -1,0 +1,33 @@
+// C function to search a given key in a given BST 
+struct node* search(struct node* root, int key) 
+{ 
+    // Base Cases: root is null or key is present at root 
+    if (root == NULL || root->key == key) 
+       return root; 
+     
+    // Key is greater than root's key 
+    if (root->key < key) 
+       return search(root->right, key); 
+  
+    // Key is smaller than root's key 
+    return search(root->left, key); 
+}
+
+
+
+bool iterativeSearch(struct Node* root, int key) 
+{ 
+    // Traverse untill root reaches to dead end 
+    while (root != NULL) { 
+        // pass right subtree as new tree 
+        if (key > root->data) 
+            root = root->right; 
+  
+        // pass left subtree as new tree 
+        else if (key < root->data) 
+            root = root->left; 
+        else
+            return true; // if the key is found return 1 
+    } 
+    return false; 
+}

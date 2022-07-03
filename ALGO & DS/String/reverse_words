@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+ {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    string s;
+	    cin >> s;
+	    int  i = s.length() - 1;
+	    int len = 0;
+	    string rev_str = "";
+	    
+	    while(i >= 0){
+	        if(s[i] != '.' || i == 0){
+	            len++;
+	        }
+	        else{
+	            rev_str += s.substr(i+1, len) + ".";
+	            len = 0;
+	        }
+	        i--;
+	    }
+	    rev_str += s.substr(i+1, len);
+	    cout << rev_str << endl;
+	}
+	return 0;
+}

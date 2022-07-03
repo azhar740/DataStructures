@@ -1,0 +1,41 @@
+Abst
+ displaying only essential information and hiding the details
+ Abstraction using Classes
+ Abstraction in Header files
+ #include <algorithm> (binary_serach, lower_bound, upper_bound)
+
+
+
+Encap
+Inheri
+Polymorphism
+
+class student{
+	private:
+	string name;
+	int id
+
+}
+
+*Access specifier(public, private, protected)
+
+
+
+*Encap()
+question-> class student(), class teacher(), class persion.
+
+*inheritence()
+
+*polymorphism() - one name mulitple form
+
+void func(int x)
+void func(double x)
+void func(int x, int y)
+
+Question-> sort() in c++
+
+
+
+
+
+

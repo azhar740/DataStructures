@@ -1,0 +1,10 @@
+void utility(struct Node *root, int k, int level){
+    if(root == NULL) return;
+    if(level == k) cout << root->data << " ";
+    utility(root->left, k, level + 1);
+    utility(root->right, k, level + 1);
+}
+void printKdistance(struct Node *root, int k)
+{
+  utility(root, k , 0);
+}

@@ -1,0 +1,55 @@
+struct node * inOrderSuccessor(struct node *root, struct node *n) 
+{ 
+    // step 1 of the above algorithm 
+    if( n->right != NULL ) 
+        return minValue(n->right); 
+  
+    struct node *succ = NULL; 
+  
+    // Start from root and search for successor down the tree 
+    while (root != NULL) 
+    { 
+        if (n->data < root->data) 
+        { 
+            succ = root; 
+            root = root->left;
+        } 
+        else if (n->data > root->data) 
+            root = root->right; 
+        else,
+           break; 
+    } 
+  
+    return succ;
+}
+
+
+
+void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
+{
+    while(root != NULL){
+        if(root->key == key){
+            if(root->right){
+                root = root->right;
+                while(root->left) root = root->left;
+                suc = root;
+            }
+            if(root->left){
+                root = root->left;
+                while(root->right) root = root->right;
+                pre = root;
+            }
+            break;
+            
+        }
+        else if(root->key > key){
+            suc = root;
+            root = root->left;
+        }
+        else{
+            pre = root;
+            root = root->right;
+        }
+    }
+
+}

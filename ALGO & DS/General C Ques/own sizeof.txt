@@ -1,0 +1,126 @@
+#include <stdio.h>
+#define my_size(type) (char *)(&type + 1) - (char *)(&type) 
+int main(){
+    int x;
+    printf("%lu ", my_size(x));
+    return 0;
+}
+
+
+
+float 4
+double 8
+long double 16
+
+int 4
+char 1
+
+What is important difference between structure & union?
+
+*
+the size of the structure is greater than or equal to the sum of sizes of its member. 
+
+
+
+*
+size of the union is equal to the size of the largest member.
+In my opinion, structure is better because as memory is shared in union ambiguity is more.
+
+
+*
+union test
+{
+    int x;
+    char arr[4];
+    int y;
+};
+  
+int main()
+{
+    union test t;
+    t.x = 0;
+    t.arr[1] = 'G';
+    printf("%s", t.arr);
+    return 0;
+}
+
+nothing will be printed as Since x and arr[4] share the same memory, when we set x = 0, all characters of arr are set as 0. O is ASCII value of ‘\0’. When we do “t.arr[1] = ‘G'”, arr[] becomes “\0G\0\0”
+
+
+
+**
+A structure cannot contain a member of its own type because if this is allowed then it becomes impossible for compiler to know size of such struct
+struct st 
+{ 
+    int x; 
+    struct st next; 
+};
+
+
+**
+In C, struct and union types cannot have static members. In C++, struct types are allowed to have static members, but union cannot have static members in C++ also.
+
+#include<stdio.h>
+struct st
+{
+    int x;
+    static int y;
+};
+  
+int main()
+{
+    printf("%d", sizeof(struct st));
+    return 0;
+}
+
+
+
+****
+32 bit machine
+
+
+struct test{
+    char a;
+    char b;
+    int c;
+}var;
+
+size of the struct is 8 bytes 
+
+struct test{
+    char a;
+    int b;
+    char c;
+}var;
+
+size of the struct is 12 bytes
+
+
+**
+Null structure in c -- starting address is zero
+
+    (int)&(((student_t*)0)->marks_physics)
+
+    (student_t*)0 -- null pointer to struct student_t
+
+
+    #define GET_OFFSET(struct_name, fld_name)   (int) &(((struct_name*)0)->fld_name)
+
+
+
+
+#include <stdio.h>
+
+#define GET_OFFSET(struct_name, fld_name)   (int) &(((struct_name*)0)->fld_name)
+
+typedef struct name{
+    int a;
+    char c;
+}name_t;
+
+int main() {
+    //code
+    printf("%d\n", GET_OFFSET(name_t, a));
+    return 0;
+}
+

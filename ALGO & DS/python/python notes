@@ -1,0 +1,16 @@
+python notes
+
+print('Python {}'.format('rules!'))
+
+.format()
+
+
+Do dictionaries keep an order? How do I print the values of the dictionary in order?
+*(ordereddict)
+
+Tuples= Immutable
+len()
+type()
+
+
+

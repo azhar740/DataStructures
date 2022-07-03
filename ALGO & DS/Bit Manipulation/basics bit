@@ -1,0 +1,86 @@
+check an integer if Odd or even
+	check lsb my doing 'and operation' with 1 
+int n;
+return n & 1 == 0;
+-------------------------------------------------------------------------------------------
+Check two integers are of opposite sign or same
+	do the xor operation and if zero means same sign else different sign
+bool oppositeSigns(int x, int y)
+{
+    return ((x ^ y) < 0);
+}
+-------------------------------------------------------------------------------------------
+ 
+
+
+Add one to an integer
+	-x = ~x + 1
+	-~x = x + 1
+
+Swap two numbers without any third varibale
+	x = x xor y
+	y = x xor y
+	x = x xor y     
+
+*
+N = N | 1 << K  ==> set
+
+*
+N = N & (~(1 << k)) ==> clear
+
+*
+N = N ^ (1 << k)  ==> toggle   
+
+N = N & (1<<k) ==> Get a bit at position.
+
+N = N & (~(1 << pos))    update a bit to 0 or 1
+N = N | (val << pos)
+
+* count the set bit
+
+while(n){
+	n = n & (n-1)
+	cnt++;
+}   
+
+
+*Program to find whether a no is power of two
+
+return (n & (n-1) == 0);
+
+*Turn off the rightmost set bit
+return n & (n-1);
+
+
+*
+Smallest power of 2 greater than or equal to n
+unsigned int nextPowerOf2(unsigned int n) 
+{ 
+    unsigned int p = 1; 
+    if (n && !(n & (n - 1))) 
+        return n; 
+ 
+    while (p < n) 
+        p <<= 1; 
+     
+    return p; 
+} 
+
+*Efficient way to find MSB (find the position of the right most significant bit)
+int cnt = 0;
+while(n){
+	if(n & 1) return cnt;
+	n = n >> 1;
+	cnt++;
+}
+
+
+*find MSB is set or not
+    #define BITS sizeof(int) * 8
+
+    msb = 1 << (BITS - 1);
+
+    /* Perform bitwise AND with msb and num */
+    if(num & msb)
+        printf("MSB of %d is set (1).", num);
+    else 

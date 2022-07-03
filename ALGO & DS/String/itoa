@@ -1,0 +1,29 @@
+char* int_to_str(int num){
+    char sign = '+';
+    if(num < 0){
+       sign = '-';
+       num = -num;
+    } 
+    char *ans;
+    int s = 1;
+    int i =0;
+    while(num > 0){
+        int rem = num % 10;
+        num = num / 10;
+        ans = (char *)realloc(ans, sizeof(char) * s++);
+        ans[i++] = rem + '0';
+    }
+    if( sign == '-'){
+        ans = (char *)realloc(ans, sizeof(char) * s++);
+        ans[i++] = '-';    
+    } 
+    ans = (char *)realloc(ans, sizeof(char) * s++);
+    ans[i] = '\0';
+    int size = strlen(ans);
+    for(int i =0; i < size /2;i++){
+        char temp = ans[i];
+        ans[i] = ans[size - i - 1];
+        ans[size - i - 1] = temp;
+    }
+    return ans;
+}

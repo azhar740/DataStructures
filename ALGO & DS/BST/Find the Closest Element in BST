@@ -1,0 +1,22 @@
+void utility(Node *root, int k, int &ans, int &min_diff){
+    if(root){
+        if(min_diff > abs(root->data - k)){
+            min_diff = abs(root->data -k);
+            ans = root->data;
+        }
+        if(k < root->data){
+            utility(root->left, k, ans, min_diff);
+        }
+        else
+            utility(root->right, k, ans, min_diff);
+    }
+    return ;
+}
+
+int maxDiff(Node *root, int k)
+{
+    int ans = -1, min_diff = INT_MAX;
+    utility(root, k, ans, min_diff);
+    return ans;
+    
+}

@@ -1,0 +1,23 @@
+void rightView(Node *root)
+{
+   if(root==NULL)
+       return;
+    queue<Node*>Q;
+    Q.push(root);
+    Q.push(NULL);
+    while(Q.front()!=NULL){
+        Node *x=Q.front();
+        Q.pop();
+        
+        while(x!=NULL){
+            Node *prev = x;
+            if(x->left) Q.push(x->left);
+            if(x->right) Q.push(x->right);
+            x=Q.front();
+            if(x == NULL)
+            cout<<(prev->data)<<" ";
+            Q.pop();
+        }
+        Q.push(NULL);
+    }
+}

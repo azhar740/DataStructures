@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {	
+	int *p = 0;
+	char *cp = 0;
+	printf("%p\n", p);
+	printf("%p\n", cp);
+	++p;
+	++cp;
+	printf("%p\n", p);
+	printf("%p\n", cp);
+	
+	
+	int a = 300;
+	char *p = (char*)&a;
+	printf("%d %d %d %d", *p, *(p + 1), *(p+2), *(p+3)); 
+	return 0;
+}

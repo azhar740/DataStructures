@@ -1,0 +1,29 @@
+int search(int arr[], int strt, int end, int val){
+    for(int i = strt; i <= end; i++){
+        if(arr[i] == val) return i;
+    }
+}
+Node *createNode(int data){
+    Node *temp = (Node *)malloc(sizeof(Node));
+    temp->data = data;
+    temp->left = NULL;
+    temp->right = NULL;
+    return temp;
+}
+Node* buildTree(int in[],int pre[], int start, int end)
+{
+    //add code here.
+    static int preIndex = 0;
+    if(start > end) return NULL;
+    // creation
+    Node *temp = createNode(pre[preIndex++]);
+    
+    if( start == end) return temp;
+    // search
+    int index = search(in, start, end, temp->data);
+    
+    temp->left = buildTree(in, pre, start, index - 1);
+    temp->right = buildTree(in, pre, index + 1, end);
+    
+    return temp;
+}

@@ -1,0 +1,23 @@
+int main()
+ {
+	int t;
+	cin>>t;
+	while(t--){
+	    string s;
+	    cin >> s;
+	    int sum = 0;
+	    string temp = "";
+	    for(int i = 0; i < s.length(); i++){
+	        if( isdigit(s[i])){
+	            temp = temp + s[i];
+	        }
+	        else{
+	            sum += atoi(temp.c_str());
+	            temp = "";
+	        }
+	    }
+	    sum += atoi(temp.c_str());
+	    cout << sum << endl;
+	}
+	return 0;
+}

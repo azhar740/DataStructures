@@ -1,0 +1,47 @@
+void size(Node *h, int *cnt){
+    while(h != NULL){
+        *cnt = *cnt + 1;
+        h = h->next;
+    }
+}
+void swap(Node **h1, Node **h2){
+    Node *temp = *h1;
+    *h1 = *h2;
+    *h2 = temp;
+}
+
+Node* addTwoLists(Node* first, Node* second) {
+    int cnt1 = 0, cnt2 = 0;
+    size(first, &cnt1);
+    size(second, &cnt2);
+    if(cnt1 < cnt2) swap(&first, &second);
+    int carry = 0;
+    Node *p = first;
+    
+    int sum = 0;
+    Node * last = NULL;
+    while(p != NULL){
+        if( second != NULL){
+            sum = p->data + second->data + carry ;
+            p->data = sum % 10;
+            second = second -> next;
+        }
+        else{
+            sum = p->data + carry;
+            p->data = sum % 10;
+        }
+            
+        carry = sum / 10;
+        last  = p;
+        p = p->next;
+    }
+    p = last;
+    if(carry == 1){
+        p->next = (Node *)malloc(sizeof(Node));
+        p = p->next;
+        p->data = 1;
+        p->next = NULL;
+    }
+    return first;
+    
+}

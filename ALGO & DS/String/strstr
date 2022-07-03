@@ -1,0 +1,14 @@
+int strstr(string s, string x)
+{
+     //Your code here
+     int N = s.length();
+     int M = x.length();
+     int j;
+     for(int i = 0; i <= N - M; i++){
+        for(j = 0; j < M; j++)
+            if( s[i + j] != x[j]) break;
+        if( j == M) return i;
+     }
+     return -1;
+     
+}

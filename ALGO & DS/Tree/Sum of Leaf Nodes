@@ -1,0 +1,14 @@
+void utilsumLeaf(Node* root, int &sum){
+    if(root == NULL) return;
+    if(root->left == NULL && root->right == NULL)
+        sum += root->data;
+    utilsumLeaf(root->left, sum);
+    utilsumLeaf(root->right, sum);
+}
+int sumLeaf(Node* root)
+{
+    // Code here
+    int sum = 0;
+    utilsumLeaf(root, sum);
+    return sum;
+}

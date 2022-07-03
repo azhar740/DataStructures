@@ -1,0 +1,12 @@
+void deleteNode(Node *node)
+{
+   // Your code here
+   if(node->next){
+   node->data = node->next->data;
+   Node *temp = node->next;
+   node->next = node->next->next;
+   //temp->next = NULL;
+   free(temp);
+   }
+   else{ free(node);}
+}

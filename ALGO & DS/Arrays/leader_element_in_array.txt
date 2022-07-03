@@ -1,0 +1,1 @@
+An element of array is leader if it is greater than or equal to all the elements to its right side
