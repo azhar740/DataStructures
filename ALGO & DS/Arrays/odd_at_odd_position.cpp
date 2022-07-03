@@ -1,4 +1,4 @@
-Even number at even index and odd element at odd index
+//Even number at even index and odd element at odd index
 
 void arrangeOddAndEven(int arr[], int n)
 {
