@@ -21,6 +21,8 @@ public:
  
 int main()
 {
+    share_ptr<int> p1; // p1.use_count will be zero
+    shared_ptr<int> p2(nullptr); // p2.use_count will be zero
  
     shared_ptr<Rectangle> P1(new Rectangle(10,5));
     // This'll print 50
@@ -38,5 +40,6 @@ int main()
     // This'll also print 50 now
     // This'll print 2 as Reference Counter is 2
     cout << P1.use_count() << endl;
+    //P1.get(); P1.reset();
     return 0;
 }
