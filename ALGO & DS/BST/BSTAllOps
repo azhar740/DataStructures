@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+class Node {
+    public:
+    int data;
+    Node *left;
+    Node *right;
+    Node(int x) {
+        data = x;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+Node *BSTInsert(Node *root, int key) {
+    if(root == NULL) {
+        root = new Node(key);
+        return root;
+    }
+    if(key < root->data) {
+        root->left = BSTInsert(root->left, key);
+    }
+    else {
+        root->right = BSTInsert(root->right, key);
+    }
+    return root;
+}
+
+void inorder(Node *root) {
+    if(root == NULL) return;
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+
+
+
+
+int main() {
+	Node *root = NULL;
+	root = BSTInsert(root, 10);
+	BSTInsert(root, 15);
+	BSTInsert(root, 12);
+	BSTInsert(root, 16);
+	BSTInsert(root, 9);
+	BSTInsert(root, 8);
+	inorder(root);
+	return 0;
+}
