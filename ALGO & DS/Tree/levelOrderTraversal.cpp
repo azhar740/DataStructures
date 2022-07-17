@@ -1,29 +1,17 @@
 void levelOrder(Node* root)
 {
-  //Your code here
-  queue<struct Node *> q;
 
-  if(root==NULL) return;
-
+  if(root == NULL) return;
+  queue<Node*> q;
   q.push(root);
-
-  while(!q.empty()){
-
-      root=q.front();
-
-      cout<<root->data<<" ";
-
-      q.pop();
-
-      if(root->left) q.push(root->left);
-
-      if(root->right) q.push(root->right);
+  while(!q.empty()) {
+    root = q.front();
+    q.pop();
+    cout << root->data << " ";
+    if(root->left) q.push(root->left);
+    if(root->right) q.push(root->right);
   }
 }
-
-
-
-
 
 void mirror(Node* root) 
 {
