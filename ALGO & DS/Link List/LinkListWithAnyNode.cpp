@@ -1,10 +1,6 @@
 #include <iostream>
 #include <map>
 using namespace std;
-
-
-
-
 class Node {
     public:
     int data;
@@ -20,7 +16,7 @@ map<Node*, Node*> mp;
 
 void display(Node *head) {
     while(head) {
-        cout << head->data << " next is " << head->any->data << "\n";
+        cout << "node " << head->data << /*" any node " << head->any->data <<*/ "\n";
         head = head->next;
     }
 }
@@ -29,28 +25,29 @@ Node *createList(Node* temp) {
     Node *head = temp;
     Node * x = NULL;
     Node *HEAD = NULL;
-    if(!head) return NULL;
+    if(head == NULL) return NULL;
     else{
         HEAD = new Node(head->data);
         mp[head] = HEAD;
         x = HEAD;
     }
-    head = head->next;
-    while(head) {
-        HEAD->next = new Node(head->data);
-        mp[HEAD->next] = head;
+    
+    while(head->next) {
+        x->next = new Node(head->next->data);
+        mp[head->next] = x->next; // this wasted my 1 hour of time
         head = head->next;
-        HEAD= HEAD->next; 
+        x = x->next; 
     }
     head = temp;
-    HEAD = x;
+    x = HEAD;
+    
     while(head) {
-        HEAD->any = mp[head->any];
+        x->any = mp[head->any];
         head = head->next;
-        HEAD = HEAD->next;
+        x = x->next;
     }
     
-    return x;
+    return HEAD;
     
 }
 
