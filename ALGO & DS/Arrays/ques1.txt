@@ -1,0 +1,23 @@
+In a cloud system there is a critical resource, a which can support only N connection requests at any time.
+If there are more requests to the resource then all connections are degraded.
+There are M callers which can use the resource, and M > N.
+Implement a locking mechanism so that the callers can safely access the resource.
+You have a SQL DB accessible to all M nodes which all M nodes can access anytime.
+
+
+
+Signatures of the methods required:
+bool AcquireLock();
+Return value - True, lock acquired
+- False, lock rejected
+void ReleaseLock();
+
+
+
+Addition of any more cloud service or component is not allowed in the scenario.
+
+
+
+In each machine M, the code getting executed invokes AcquireLock, if it is successful it does the work
+it needs to do with the resource and then releases the lock.
+If the lock is unsuccessful, it will wait for 1 hour to try again.

@@ -1,0 +1,37 @@
+o Say a file system gives the following methods:
+
+
+
+void createFile(string name, int size);
+// The space is reserved for the file and the file is filled with random data
+
+
+
+void deleteFile(string name);
+// Deletes all fragments for the file
+
+
+
+string[] getFilenames(void);
+// Array for all files's names on the volume
+
+
+
+int getFreeSize(void);
+// Sum of all free size spaces on the volume
+
+
+
+File system will start placing the file in the free space which is just larger or equal than the file size.
+File system can divide the file further into multiple fragments (parts) if the largest free space is not large enough for the file to be created.
+
+
+
+Now create a program to create a file with maximum possible number of fragments (parts).
+Existing files on the volume need not be preserved. You can manipulate the volume using the above methods anyway you want.
+Implement the method.
+
+
+
+string CreateFileWithMaxFragments(void);
+// returns the file with largest number of fragments for the given volume
