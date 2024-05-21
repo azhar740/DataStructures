@@ -1,0 +1,16 @@
+The Command pattern is a behavioral design pattern that turns a request into a stand-alone object that contains all the information about
+ the request. This pattern decouples the sender of the request from the object that executes the request, allowing you to parameterize methods,
+ delay execution, or queue requests.
+
+### Simple Explanation:
+
+Imagine you are using a remote control for a TV. Each button on the remote control sends a different command to the TV, such as turning it on or off,
+changing the channel, or adjusting the volume. The Command pattern allows each button to be represented as a command object that encapsulates the request.
+
+### Key Components:
+
+1. *Command*: An interface that declares a method for executing a command.
+2. *ConcreteCommand*: Implements the Command interface and defines the binding between the receiver and the action.
+3. *Receiver*: The object that performs the actual work when the command's execute method is called.
+4. *Invoker*: The object that knows how to execute a command but doesn't know the specifics of the command's implementation.
+5. *Client*: Creates the command and associates it with the receiver.
